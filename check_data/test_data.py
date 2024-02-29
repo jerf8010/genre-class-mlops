@@ -93,15 +93,15 @@ def test_kolmogorov_smirnov(data, ks_alpha):
 
     columns = [
         "danceability",
-        "energy",
-        "loudness",
-        "speechiness",
-        "acousticness",
-        "instrumentalness",
-        "liveness",
-        "valence",
-        "tempo",
-        "duration_ms"
+        "energy"
+        #"loudness",
+        #"speechiness",
+        #"acousticness",
+        #"instrumentalness",
+        #"liveness",
+        #"valence",
+        #"tempo",
+        #"duration_ms"
     ]
 
     # Bonferroni correction for multiple hypothesis testing

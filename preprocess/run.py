@@ -32,7 +32,7 @@ def go(args):
     df['text_feature'] = df['title'] + ' ' + df['song_name']
 
     filename = "processed_data.csv"
-    df.to_csv(filename)
+    df.to_csv(filename, index=False)
 
     artifact = wandb.Artifact(
         name=args.artifact_name,

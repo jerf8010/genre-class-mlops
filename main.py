@@ -42,7 +42,7 @@ def go(config: DictConfig):
             os.path.join(root_path, "preprocess"),
             "main",
             parameters={
-                "input_artifact": "raw_data.parquet:latest",
+                "input_artifact": "jerf8010/exercise_14/raw_data.parquet:latest",
                 "artifact_name": "preprocessed_data.csv",
                 "artifact_type": "preprocessed_data",
                 "artifact_description": "Data with preprocessing applied"
@@ -55,7 +55,7 @@ def go(config: DictConfig):
             "main",
             parameters={
                 "reference_artifact": config["data"]["reference_dataset"],
-                "sample_artifact": "preprocessed_data.csv:latest",
+                "sample_artifact": "jerf8010/exercise_14/preprocessed_data.csv:latest",
                 "ks_alpha": config["data"]["ks_alpha"]
             },
         )
@@ -66,7 +66,7 @@ def go(config: DictConfig):
             os.path.join(root_path, "segregate"),
             "main",
             parameters={
-                "input_artifact": "preprocessed_data.csv:latest",
+                "input_artifact": "jerf8010/exercise_14/preprocessed_data.csv:latest",
                 "artifact_root": "data",
                 "artifact_type": "segregated_data",
                 "test_size": config["data"]["test_size"],
@@ -85,7 +85,7 @@ def go(config: DictConfig):
             os.path.join(root_path, "random_forest"),
             "main",
             parameters={
-                "train_data": "data_train.csv:latest",
+                "train_data": "jerf8010/exercise_14/data_train.csv:latest",
                 "model_config": model_config,
                 "export_artifact": config["random_forest_pipeline"]["export_artifact"],
                 "random_seed": config["main"]["random_seed"],
@@ -101,7 +101,7 @@ def go(config: DictConfig):
             "main",
             parameters={
                 "model_export": f"{config['random_forest_pipeline']['export_artifact']}:latest",
-                "test_data": "data_test.csv:latest"
+                "test_data": "jerf8010/exercise_14/data_test.csv:latest"
             },
         )
 
